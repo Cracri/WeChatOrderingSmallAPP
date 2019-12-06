@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.wx.mapper.GreensMapper">
+
+	<sql id="whereTitle">
+		<where>
+			<if test="productName!=null and productName!=''">    		<!-- ********** -->
+				concat(productName,type) like concat("%",#{productName},"%")
+			</if>
+		</where>
+	</sql>
+	
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from ex_menu_allfoot 
+		<include refid="whereTitle"/>
+	</select>
+	
+	<select id="findGreens" resultType="com.wx.vo.Product">
+		select * from ex_menu_allfoot  
+		<include refid="whereTitle"/>
+		limit #{page},#{pageSize}
+	</select>
+	
+	<select id="getAllProductId" resultType="com.wx.vo.Product">
+		select * from ex_menu_allfoot
+	</select>
+	
+	<insert id="saveProductInfo">
+		insert into ex_menu_allfoot values(null,#{productName},#{productId},#{productPrice},#{discount},#{productPic},#{type},0,0,0)
+	</insert>
+	
+	<insert id="saveChunCaiProductInfo">
+		insert into ex_menu_chuancai values(null,#{productName},#{productId},#{productPrice},#{discount},#{productPic},0,0,0,#{type})
+	</insert>
+	
+	<insert id="saveYueCaiProductInfo">
+		insert into ex_menu_yuecai values(null,#{productName},#{productId},#{productPrice},#{discount},#{productPic},0,0,0,#{type})
+	</insert>
+	
+	<insert id="saveSuCaiProductInfo">
+		insert into ex_menu_sucai values(null,#{productName},#{productId},#{productPrice},#{discount},#{productPic},0,0,0,#{type})
+	</insert>
+	
+	<insert id="saveLuCaiProductInfo">
+		insert into ex_menu_lucai values(null,#{productName},#{productId},#{productPrice},#{discount},#{productPic},0,0,0,#{type})
+	</insert>
+	
+	<select id="findProductById" resultType="com.wx.vo.Product">
+		select * from ex_menu_allfoot where id = #{id}
+	</select>
+	
+	<update id="updateProductInfoById"> 
+		update  ex_menu_allfoot set productName = #{productName},productPrice = #{productPrice},
+		discount=#{discount},productPic=#{productPic} 
+		where id = #{id}
+	</update>
+	
+	<update id="updateChuancaicaiProductByProductId">
+		update  ex_menu_chuancai set productName = #{productName},productPrice = #{productPrice},
+		discount=#{discount},productPic=#{productPic} 
+		where productId = #{productId}
+	</update>
+	
+	<update id="updateYuecaiProductByProductId">
+		update  ex_menu_yuecai set productName = #{productName},productPrice = #{productPrice},
+		discount=#{discount},productPic=#{productPic} 
+		where productId = #{productId}
+	</update>
+	
+	<update id="updateSucaiProductByProductId">
+		update  ex_menu_sucai set productName = #{productName},productPrice = #{productPrice},
+		discount=#{discount},productPic=#{productPic} 
+		where productId = #{productId}
+	</update>
+	
+	<update id="updateLucaiProductByProductId">
+		update  ex_menu_lucai set productName = #{productName},productPrice = #{productPrice},
+		discount=#{discount},productPic=#{productPic} 
+		where productId = #{productId}
+	</update>
+	
+	<delete id="delProductByProductId">
+		delete from ex_menu_allfoot where productId = #{productId}
+	</delete>
+	
+	<delete id="delChuanCaiProductByProductId">
+		delete from ex_menu_chuancai where productId = #{productId}
+	</delete>
+	
+	<delete id="delYueCaiProductByProductId">
+		delete from ex_menu_yuecaiwhere productId = #{productId}
+	</delete>
+	
+	<delete id="delSuCaiProductByProductId">
+		delete from ex_menu_sucai where productId = #{productId}
+	</delete>
+	
+	<delete id="delLuCaiProductByProductId">
+		delete from ex_menu_lucai where productId = #{productId}
+	</delete>
+	
+	<select id="findGreen" resultType="com.wx.vo.Product">
+		select * from ex_menu_allfoot where id = #{id}
+	</select>
+	
+	<update id="updateProductIsFinish">
+		update ex_menu_allfoot set isFinish = #{isFinish} where id = #{id}
+	</update>
+	
+	<update id="updateChuancaiFinish">
+		update ex_menu_chuancai set isFinish = #{isFinish} where productId = #{productId}
+	</update>
+	
+	<update id="updateYuecaiFinish">
+		update ex_menu_chuancai set isFinish = #{isFinish} where productId = #{productId}
+	</update>
+	
+	<update id="updateSucaiFinish">
+		update ex_menu_chuancai set isFinish = #{isFinish} where productId = #{productId}
+	</update>
+	
+	<update id="updateLucaiFinish">
+		update ex_menu_chuancai set isFinish = #{isFinish} where productId = #{productId}
+	</update>
+	
+	
+	
+</mapper>

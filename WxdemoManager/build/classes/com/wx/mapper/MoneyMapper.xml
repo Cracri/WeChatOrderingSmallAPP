@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.wx.mapper.MoneyMapper">
+	
+	
+	<select id="findMonthData" resultType="map">
+		select DATE_FORMAT(createordertime,'%Y-%m') as month,
+		sum(totalprice) as money   
+		from ex_order   
+		where DATE_FORMAT(createordertime,'%Y')=2019  
+		group by month   
+		order by month
+	</select>
+	
+	<select id="findDayData">
+		
+	</select>
+
+</mapper>

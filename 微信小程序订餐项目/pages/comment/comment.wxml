@@ -1,0 +1,49 @@
+<!--1.图片轮播区-->
+<swiper class='u-wrp-bnr' indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+  <block wx:for="{{bnrUrl}}" wx:for-index="index" wx:key='index'>
+    <swiper-item>
+      <image src='{{item.url}}' class='u-img-slide' mode='aspectFill'></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!--2.用户评论信息显示区-->
+<scroll-view style='height:100%;margin-top:80rpx;' scroll-y='true'>
+    
+    <view wx:for='{{userCommentList}}' wx:for-item='userCommentList' wx:key='index'>
+        <view id="comment">
+            <view class='userInfo' style=''>
+                <image class='pic setting' src="{{userCommentList.userPic}}" style='width:80rpx;height:80rpx;'></image>
+                <text class='name setting' style='margin-left:30rpx;marigin-top:-8rpx;'>{{userCommentList.userName}}</text>
+                <view class='likesModule' bindtap='gaveLike' data-id='{{userCommentList.id}}' data-count='{{userCommentList.likes}}' data-index='{{index}}'>
+                    <image src='/image/{{userCommentList.isGave =="0"?"Nlikes.png":"Ylikes.png"}}' class='Likes'></image>
+                    <text class='LikesCount' wx:if='{{userCommentList.likes==0?false:true}}' >{{userCommentList.likes}}</text>
+                </view>
+            </view>
+            <view class='commentDetail'>{{userCommentList.userComment}}</view>
+            <view class='commentTime' style='color:gray;margin-top:10rpx;'>{{userCommentList.commentTime}}</view>
+        </view>
+    </view>
+    
+</scroll-view>
+
+
+
+<!--3.用户输入评论区-->
+<view hidden='{{isopen}}' style='background-color:#ccc;width:90rpx;background:gray;' bindtap='focusButn' style=''>
+    <image class='up' src='/image/upup.png' ></image>
+</view>
+ 
+<view class='commentInputView2' style='bottom:{{height == ""?0:height}}px;' hidden='{{!isInput}}'>
+ 
+  <view  class='commentInput'>
+    <input class='input' maxlength='-1' value='{{value}}' bindfocus="inputFocus" focus='{{focusInput}}' bindblur="inputBlur" style='background:white;width:500rpx;height:100rpx;border-radius:26rpx;'></input>
+  </view>
+  <view class='send' bindtap='sendMessage'>
+    <image src='/image/sendpng.png' style='width:80rpx;height:100rpx;'></image>
+  </view>
+  
+</view> 
+
+
+<!--4.返回顶部小功能-->

@@ -1,0 +1,71 @@
+/*导航的css*/
+.swiper-tab{
+ width: 100%;
+ border-bottom: 2rpx solid #777777;
+ text-align: center;
+ line-height: 80rpx;
+}
+
+.swiper-tab-list{
+ font-size: 30rpx;
+ display: inline-block;
+ width: 20%;
+ color: #777777;
+ margin-right: 4%;
+margin-left: 4%;
+}
+.on{
+ color: #da7c0c;
+ border-bottom: 5rpx solid #da7c0c;
+}
+.swiper-box{
+ display: block;
+ height: 100%;
+ width: 100%;
+ overflow: hidden;
+}
+.swiper-box view{
+ text-align: center;
+}
+
+
+
+/*已支付界面的css*/
+.content{
+    width: 685rpx;
+    margin: 12rpx auto;
+    padding-bottom: 85rpx;
+    padding-left: 18rpx;
+    background: wheat;
+    font-size: 32rpx;
+}
+.content .delOrder{
+    margin-left: 630rpx;
+    font-size: 45rpx;
+}
+.content view{
+    text-align: left;
+    margin-top: 8rpx;
+}
+.content text{
+    text-align: left;
+}
+ .content .detail{
+   margin-left: 94rpx;
+}  
+
+.content .refund{
+    background: orange;
+    float: right;
+    border-radius: 34rpx;
+    padding:10rpx;
+}
+
+
+
+/*地址相关 css*/
+#Address{
+    text-align: center;
+    padding: 20rpx auto;
+    font-size: 44rpx;
+}

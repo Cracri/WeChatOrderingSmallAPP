@@ -1,0 +1,22 @@
+<!--已付款的界面-->
+<scroll-view scroll-y='true' style='width:100%;height:100%;'>
+    <view class='content' wx:for='{{noPayOrder}}'  wx:for-item="noPayOrder" wx:key="index">
+        <view class='delOrder' bindtap='delNoPayOrder' data-index='{{index}}'>×</view>
+        <view>订单:{{noPayOrder.orderNumber}}</view>
+        <view>桌号:#{{noPayOrder.orderDeskNumber}}</view>
+        <view>菜品:</view>
+        <view wx:for='{{noPayOrder.orderDetail}}' wx:for-item="noPayOrderDetail" wx:key='index1' class='detail'>
+            <text>{{noPayOrderDetail.productName}}\t</text>
+            <text>×\t</text>
+            <text>{{noPayOrderDetail.productCount}}\t</text>
+        </view>
+        <view>总价:{{noPayOrder.totalPrice}} \t元</view>
+        <view>备注:{{noPayOrder.remark}}</view>
+        <view>下单时间:{{noPayOrder.createTime}}</view>
+       
+        <!--付款功能-->
+        <text style='text-align:right;margin-right:30rpx;' class='refund' bindtap='payOrder'>去付款</text>
+        
+    </view>
+</scroll-view>
+

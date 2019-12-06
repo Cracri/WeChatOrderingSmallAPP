@@ -1,0 +1,34 @@
+<!--已付款的界面-->
+<scroll-view scroll-y='true' style='width:100%;height:100%;'>
+    <view class='content' wx:for='{{payOrder}}'  wx:for-item="payOrder" wx:key="index">
+        <view class='delOrder' bindtap='delOrder' data-index='{{index}}'>×</view>
+        <view wx:if='true'>订单:{{payOrder.orderNumber}}</view>
+        
+        <view wx:if="{{payOrder.address==='无'}}">
+            <view>桌号:#{{payOrder.orderDeskNumber}}</view>
+        </view>
+        <view wx:else>
+            <view>地址:#{{payOrder.address}}</view>
+        </view>
+
+        <view>菜品:</view>
+        <view wx:for='{{payOrder.orderDetail}}' wx:for-item="payOrderDetail" wx:key='index1' class='detail'>
+            <text>{{payOrderDetail.productName}}\t</text>
+            <text>×\t</text>
+            <text>{{payOrderDetail.productCount}}\t</text>
+        </view>
+        <view>总价:{{payOrder.totalPrice}} \t元</view>
+        <view>备注:{{payOrder.remark}}</view>
+        <view>下单时间:{{payOrder.createTime}}</view>
+
+
+        <!--查看，订单是否完成-->
+        <text style='margin-right:10rpx;float:right;border-radius:34rpx;padding:10rpx;background:orange;' >{{payOrder.isFinish==0?'未完成':'已完成'}}</text>
+        <!--查看，订单是否接受-->
+        <text style='margin-right:20rpx;float:right;border-radius:34rpx;padding:10rpx;background:orange;' >{{payOrder.isAcept==0?'未接受':'已接受'}}</text>
+        <!--用户退款功能-->
+        <text wx:if='{{payOrder.isAcept==0?true:false}}' style='text-align:right;margin-right:30rpx;' class='refund' bindtap=''>申请退款</text>
+        
+    </view>
+</scroll-view>
+

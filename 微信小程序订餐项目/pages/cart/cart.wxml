@@ -1,0 +1,90 @@
+
+<view id="title">我的订单</view>
+
+<!--没有订单的时候显示提示-->
+<view wx:if='{{emptySomething}}'>
+    <image src='/image/emptySomething.jpg' class='emptySomething'> </image>
+    <view><text class='hint1'>当前订单没有任何东西哦</text></view>
+    <view><text class='hint2'>您可以通过提交订单获取到呢！</text></view>
+</view>
+
+<view wx:else>
+<scroll-view scroll-y="true" style='height:1000rpx;'>
+
+  <view wx:for="{{productList}}" wx:for-item="productList" wx:key="productList">
+    <view wx:if='{{productId_hidden}}'>{{productList.productId}}</view>
+    <view class='item'>
+      <view class='icon'>
+        <image src='/image/{{productList.productPic}}' style='width:164rpx;height:140rpx;margin-left:18px;'></image>
+      </view>
+      <view class='info'>
+        <view class='name'>{{productList.productName}}</view>
+        <view class='del' bindtap='delProduct' data-index='{{index}}'>×</view>
+        <view class='priceInfo'>
+          <view class='price'>￥{{productList.productPrice}}</view>
+            <view class='sku'>
+                <text class='sub' bindtap='subProductCount' data-index="{{index}}" >-</text>
+                <text class='number'>{{productList.productCount}}</text>
+                <text class='add' bindtap='addProductCount' data-index="{{index}}" >+</text>
+            </view> 
+        </view>
+      </view>
+    </view>
+    <view class='hr'></view>
+  </view>
+
+</scroll-view>
+
+
+<!--结算框-->
+<view id='bottomTotal'>
+    <view class='TotalFrame'>
+        <view class='frameRight'>
+          <text class='totalPrice'>合计:￥{{totalMoney}}</text>
+<view class="subOrder" bindtap="powerDrawer" data-statu="open">结算({{length}})</view> 
+
+<!--mask-->  
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="" wx:if="{{showModalStatus}}"></view>  
+<!--content-->  
+<!--使用animation属性指定需要执行的动画   }-->  
+<view animation="{{animationData}}" class="drawer_box" wx:if='{{showModalStatus}}' >  
+  <!--drawer content-->  
+  <view class="drawer_title">详情订单</view>  
+  <view class="drawer_content">  
+    <view class="top grid">  
+      <label class="title col-0">订单编号</label>  
+      <input class="input_base input_h30 col-1" disabled='true' name="orderNumber"  value="{{code}}"></input>  
+    </view>
+    <view class="top bottom grid">  
+      <label class="title col-0">添加备注</label>  
+      <input class="input_base input_h30 col-1" placeholder='根据需求填写|可以为空' name="remark" bindinput='getRemark'></input>
+    </view>  
+    <view class="top bottom grid">  
+        <label class="title col-0">选择方式</label>
+        <radio-group style='font-size:28rpx;' name='ways' bindchange='getRadioValue'>
+            <label><radio style='width:20rpx; transform:scale(0.7);' value='0' checked='true'/>店里点餐</label>
+            <label><radio style='margin-left:30rpx;width:20rpx; transform:scale(0.7);' value='1'/>外卖点餐</label>
+        </radio-group>
+    </view>  
+
+    <view class="top bottom grid" wx:if='{{addrssHiden}}' bindtap='nativeToAddress'>  
+        <label class="title col-0">请选择您的地址</label>  
+        <input class="input_base input_h30 col-1"  disabled='true' value='{{consignee}} {{telNumber}}  {{provinceName}} {{cityName}} {{districtName}} {{detailInfo}}'></input>
+        <image src='../../image/箭头.png' class='chooseAddress' ></image>
+    </view>  
+
+  </view>  
+  <view class="btn_ok" bindtap="powerDrawer" data-statu="pay">支付</view> 
+  <view class="btn_ok" bindtap="powerDrawer" data-statu="close">关闭</view>  
+</view>
+        </view>
+    </view>
+</view>
+</view>
+
+
+
+
+
+
+

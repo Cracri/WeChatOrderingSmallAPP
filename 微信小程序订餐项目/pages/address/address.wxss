@@ -1,0 +1,72 @@
+#top{
+    padding-top: 14rpx;
+    padding-bottom: 14rpx;
+    border-bottom: 4rpx solid black;
+    height: 60rpx;
+    position: relative;
+}
+
+#top .chooseAddress{
+    width: 60rpx;
+    height: 38rpx;
+    position: absolute;
+    left: 20rpx;
+    top: 30rpx;
+}
+
+#top .title{
+    float: left;
+    margin-left: 242rpx;
+    font-size: 40rpx;
+}
+#top .add{
+    float: right;
+    margin-right: 13rpx;
+    font-size: 30rpx;
+    margin-top: 12rpx;
+}
+
+
+/*内容区*/
+#content{
+    height: 100%;
+    width: 100%;
+}
+#content .detailAddressList{
+    background: pink;
+    display: flex;
+    height: auto;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    font-size: 34rpx;
+    margin: 16rpx;
+    position: relative;
+}
+
+#content .detailAddressList .icon{
+    width: 80rpx;
+    height: 80rpx;
+    background: wheat;
+    margin-left: 20rpx;
+}
+
+#content .detailAddressList .detailAddress{
+    line-height: 80rpx;
+    margin-left: 20rpx;
+    width: 460rpx;
+    font-size: 30rpx;
+}
+
+#content .detailAddressList .handle{
+    line-height: 80rpx;
+    margin-left: 310rpx;
+    position: absolute;
+    left: 305rpx;
+}
+
+#content .detailAddressList .del{
+    position: absolute;
+    left: 674rpx;
+}
+
+

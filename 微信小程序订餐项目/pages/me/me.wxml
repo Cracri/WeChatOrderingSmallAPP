@@ -1,0 +1,31 @@
+<view class="page">
+  <!-- <navigator url="../../pages/login/login"> -->
+    <view class="login" bindtap="check">
+      <image class="login_pic" src="{{userInfo.avatarUrl}}" />
+      <view class="login_content color_white">{{userInfo.nickName}}</view>
+    </view>
+
+  <view class='list' bindtap='findOrder'>
+    <image style="float:left;width:50rpx;height:50rpx;margin-top:20rpx;margin-right:15rpx;" src='../../image/order.jpg'></image>
+    查询订单
+  <image style="float:right;width:50rpx;height:50rpx;margin-top:20rpx;margin-right:20rpx;" src='../../image/箭头.png'></image>
+  </view>
+
+  <view class='list' bindtap='findAddress'>
+  <image style="float:left;width:50rpx;height:50rpx;margin-top:20rpx;margin-right:15rpx;" src='../../image/dizhi.png'></image>
+  我的地址
+  <image style="float:right;width:50rpx;height:50rpx;margin-top:20rpx;margin-right:20rpx;" src='../../image/箭头.png'></image>
+  </view>
+
+  <view class='list' bindtap='findComment'>
+  <image style="float:left;width:50rpx;height:50rpx;margin-top:20rpx;margin-right:15rpx;" src='../../image/comment.png'></image>
+  评论区
+  <image style="float:right;width:50rpx;height:50rpx;margin-top:20rpx;margin-right:20rpx;" src='../../image/箭头.png'></image>
+  </view>
+
+  <view class='list'>
+  <image style="float:left;width:50rpx;height:50rpx;margin-top:20rpx;margin-right:15rpx;" src='../../image/kefu.png'></image>
+  联系老板
+  <image style="float:right;width:50rpx;height:50rpx;margin-top:20rpx;margin-right:20rpx;" src='../../image/箭头.png'></image>
+  </view>
+</view>

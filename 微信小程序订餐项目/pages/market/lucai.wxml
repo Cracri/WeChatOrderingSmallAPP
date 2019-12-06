@@ -1,0 +1,19 @@
+<scroll-view scroll-y='true' style='width:100%;height:100%;'>
+  <view wx:for="{{menusLuCaiList}}" wx:for-item="lucai" wx:key="index3">
+    <view wx:if='{{productId_hidden}}'>{{lucai.productId}}</view>
+    <view class='item'>
+      <view class='icon'>
+        <image src='/image/{{lucai.productPic}}' style='width:100rpx;height:87rpx;border-radius:100rpx;margin-top:14rpx;'></image>
+      </view>
+      <view class='info'>
+        <view class='name'>{{lucai.productName}}</view>
+        <view class='priceInfo'>
+          <view class='price'>￥{{lucai.productPrice}}</view>
+            
+         <text class='{{lucai.isBuy==0?"isbuy":"isbuy2"}}' data-type='4' data-index='{{index}}' data-isbuy='{{lucai.isBuy}}' bindtap='isbuyTap' >{{lucai.isBuy == 0?'添加':'取消'}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='hr'></view>
+  </view>
+</scroll-view>

@@ -1,0 +1,84 @@
+<view scroll-y="true" class="content">
+
+  <view class='left'>
+    <view class="{{flag==0?'select':'normal'}}" id='0' bindtap='switchNav'>热销榜</view>
+    <view class="{{flag==1?'select':'normal'}}" id='1' bindtap='switchNav'>天天特价</view>
+    <view class="{{flag==2?'select':'normal'}}" id='2' bindtap='switchNav'>川菜</view>
+    <view class="{{flag==3?'select':'normal'}}" id='3' bindtap='switchNav'>粤菜</view>
+    <view class="{{flag==4?'select':'normal'}}" id='4' bindtap='switchNav'>苏菜</view>
+    <view class="{{flag==5?'select':'normal'}}" id='5' bindtap='switchNav'>鲁菜</view>
+    <view class="{{flag==6?'select':'normal'}}" id='6' bindtap='switchNav'>甜品</view>
+  </view>
+
+  <view class='right'>
+    <view class='order'>
+      <view bindtap=''>综合排名</view>
+      <view >按价格</view>
+      <view >按销量</view>
+    </view>
+  <view class='hr'></view>
+
+  <view class='category'>
+    <swiper current='{{currentTab}}' style='height:500px;'>
+      <swiper-item>
+        
+      </swiper-item>
+
+      <swiper-item>
+        222
+      </swiper-item>
+
+      <swiper-item>
+        <include src="chuancai.wxml" />
+      </swiper-item>
+
+      <swiper-item>
+        <include src="yuecai.wxml" />
+      </swiper-item>
+
+      <swiper-item>
+        <include src="sucai.wxml" />
+      </swiper-item>
+
+      <swiper-item>
+        <include src="lucai.wxml" />
+      </swiper-item>
+
+      <swiper-item>
+        <!--<include src="dessert.wxml" />-->
+      </swiper-item>
+    </swiper>
+
+     <!-- 结算框-->
+     <view id='bottomTotal'>
+      <view class='TotalFrame'>
+        <view class='frameLeft'>
+          <image class='shopCat' src='/image/shopCat.png' bindtap='openOrder'></image>
+          <view wx:if='{{productCount==0?false:true}}' class='productCount'>{{productCount}}</view>
+        </view>
+        <view class='frameRight'>
+          <text class='totalPrice'>合计:￥{{productTotalPrice}}</text>
+          <view class='subOrder' bindtap='submitOrder'>提交订单</view>
+        </view>
+      </view>
+     </view>
+
+    <!--弹窗层   弹出订单-->
+    <view id='showOrder' wx:if='{{showOrder}}'>
+        <view class='showOrderContent'>
+            <view class='showOrder'>
+                <text class='showOrderTitle' style='margin-left:20px;'>商品名称</text><text class='showOrderTitle'>数量</text><text class='showOrderTitle'>价格</text>
+            </view>
+
+    <view wx:for="{{alaCarte}}" wx:for-item="order" wx:key="order">
+                <text class='showOrderitem'>{{order.productName}}</text><text style='margin-left:13px;'>×</text><text class='showOrderitem' style='margin-left:11px;'>{{order.productCount}}</text><text class='showOrderitem' style='margin-left:68px;'>{{order.totalPrice}}</text>
+    </view>
+    
+        </view>
+        <view class='closeOrder' bindtap='closeOrder'>×</view>
+    </view>
+
+   </view>
+ </view>
+ 
+</view>

@@ -1,0 +1,253 @@
+.content{
+  display: flex;
+  flex-direction: row;
+  font-family: "微软雅黑";
+}
+
+.left{
+  width: 25%;
+  font-size: 30rpx;
+}
+
+.select{
+  background-color: #F8F8F8;
+  border-left: 10rpx solid #FFD600;
+  font-weight: bold;
+  text-align: center;
+  height: 9%;
+  padding-top: 0.5em;
+}
+
+.normal{
+  background-color: #F8F8F8;
+  border-bottom: 2rpx solid #f2f2f2;
+  height: 9%;
+  }
+
+.right{
+  width: 75%;
+  margin:20rpx;
+}
+
+.order{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 20rpx;
+}
+
+.order view{
+  width: 33%;
+  font-size: 30rpx;
+}
+
+.hr{
+  border: 2rpx solid #cccccc;
+  opacity: 0.2;
+}
+
+.item{
+  display: flex;
+  flex-direction: row;
+  padding: 10rpx;
+}
+
+.info{
+  width: 80%;
+}
+
+.name{
+  font-size: 24rpx;
+  text-align: left;
+  margin-left: 20rpx;
+}
+
+.priceInfo{
+  display: flex;
+  flex-direction: row;
+  margin-top: 15rpx;
+  align-items: center;
+}
+
+.price{
+  width: 80%;
+  font-size: 24rpx;
+  color: #ff0000;
+  text-align: left;
+  margin-left: 20rpx;
+}
+
+.count{
+  border: 1px solid #cccccc;
+  border-radius: 999px;
+  width: 50rpx;
+  color: black;
+  text-align: center;
+  background-color: orange;
+}
+
+.count2{
+  border: 1px solid #cccccc;
+  border-radius: 999px;
+  width: 50rpx;
+  color: black;
+  text-align: center;
+  background-color: orange;
+}
+
+.surplus{
+  font-size: 24rpx;
+  color:#000;
+}
+
+.buycount{
+  font-size: 24rpx;
+  color:#000;
+  padding:0 40rpx;
+  border-bottom: 1rpx #000 solid;
+  line-height: 40rpx;
+  width: 28rpx;
+}
+
+.isbuy{
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 32rpx;
+  background: #FFD600;
+  border-radius: 40rpx;
+  text-align: center;
+}
+
+.isbuy2{
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 32rpx;
+  background:orange;
+  border-radius: 40rpx;
+  text-align: center;
+}
+
+.hover_isbuy{
+  background: #ff0000;
+}
+
+#bottomTotal{
+  width: 1200rpx;
+  height: 120rpx;
+  /* background: #FFD600; */
+  margin-left: -170rpx;
+  z-index: 999;
+  border: 2rpx solid #000;
+}
+
+#bottomTotal .TotalFrame{
+  display: flex;
+  flex-direction: row;
+}
+
+#bottomTotal .TotalFrame .frameLeft{
+  display: flex;
+  width: 248rpx;
+  height: 120rpx;
+  /* background: green; */
+}
+#bottomTotal .TotalFrame .frameRight{
+  display: flex;
+  width:600rpx;
+  height: 120rpx;
+  margin-left: 40rpx;
+  /* background:bisque; */
+}
+
+#bottomTotal .TotalFrame .frameLeft .shopCat{
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 60rpx;
+  margin-top: 32rpx;
+}
+
+#bottomTotal .TotalFrame .frameLeft .productCount{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 99px;
+   background: #e21e1eb7;
+  margin-left: -46rpx;
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color: white;
+  font-weight: bold;
+}
+
+#bottomTotal .TotalFrame .frameRight .totalPrice{
+  width: 300rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: 32rpx;
+  font-size: 32rpx;
+}
+
+#bottomTotal .TotalFrame .frameRight .subOrder{
+  width:400rpx;
+  height: 120rpx;
+  /* background: white; */
+  padding-left: 40rpx;
+  line-height: 120rpx;
+  font-size: 32rpx;
+  border-left: 2rpx solid #000;
+}
+
+#showOrder{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color:rgba(0, 0, 0, .5);
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+#showOrder .showOrderContent{
+    padding: 20rpx 0;
+    width: 80%;
+    background: #e1d2b1;
+    margin: 40% auto;
+    border-radius: 20rpx;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+
+#showOrder .showOrderContent .showOrder{
+    display: flex;
+    flex-direction: row;
+}
+#showOrder .showOrderContent .showOrder .showOrderTitle{
+    width: 176rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 36rpx;
+    font-weight: bold;
+    background:peachpuff;
+}
+#showOrder .showOrderContent .showOrderitem{
+    margin-top: 12rpx;
+    width: 176rpx;
+    height: 36rpx;
+    font-size: 32rpx;
+    margin-left: 60rpx;
+}
+
+.closeOrder{
+    height: 60rpx!important;
+    width: 60rpx!important;
+    position: absolute;
+    top: 295rpx;
+    right: 55rpx;
+}
+
+

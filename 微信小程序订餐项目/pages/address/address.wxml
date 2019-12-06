@@ -1,0 +1,39 @@
+<view id='top'>
+    <view bindtap='returnMeWxml'><image src='../../image/left.png' class='chooseAddress' ></image></view>
+    <text class='title'>我的收货地址</text>
+    <text class='add' bindtap='insertAddress'>添加新地址</text>
+</view>
+
+<view id="content">
+    <view class='detailAddressList' wx:for='{{addressList}}' wx:for-item="addressList" wx:key="index"  bindtap='returnCartWxml' data-index='{{index}}'>
+        <image class='icon' src='/image/home.png'></image>
+        <view class='detailAddress'>
+            <view class='message' style='margin-top:-21rpx;height:40rpx;'>
+                <text class='name'>{{addressList.consignee}}　　</text>
+                <text class='phone'>{{addressList.telNumber}}</text>
+            </view>
+            <view class='position' style='width:490rpx;'>
+                <text class='province'>{{addressList.provinceName}}</text>
+                <text class='city'>{{addressList.cityName}}</text>
+                <text class='area'>{{addressList.districtName}} </text>
+                <text class='extra'>{{addressList.detailInfo}} </text>
+            </view>
+        </view>
+        <!-- <view class='handle' class='editAddress'>  编辑</view> -->
+        <view class='del' bindtap='delThisAddress' data-id='{{addressList.id}}'>
+            <image src='../../image/del.png' style='width:30rpx;height:30rpx;'></image>
+        </view>
+    </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+

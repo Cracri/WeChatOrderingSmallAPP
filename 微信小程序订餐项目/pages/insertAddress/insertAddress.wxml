@@ -1,0 +1,21 @@
+<view class="wraper">
+    <view class="listItems">
+        <text class="listLeft">收货人姓名: </text>
+        <input id="name" class="listRight" name='consignee' type="text" bindinput='consignee'/>
+    </view>
+     <view class="listItems">
+        <text class="listLeft">手机号码: </text>
+        <input id="name" class="listRight" type="number" bindinput='telNumber'/>
+    </view>
+     <view class="listItems">
+        <text class="listLeft">所在地区: </text>
+        <input disabled='true' class="listRight" type="text" value="{{province}} {{city}} {{district}}" />
+    </view>
+     <view class="listItems">
+        <text class="listLeft">详细地址: </text>
+        <input id="name" class="listRight" type="text" bindinput='detailInfo' />
+    </view>
+    <view class="btnGroup">
+        <button class="btn" bindtap='Addaddress'>确认添加</button>
+    </view>
+</view>

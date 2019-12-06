@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/market/market",  
+    "pages/me/me",
+    "pages/cart/cart",
+    "pages/confirmOrder/confirmOrder",
+    "pages/address/address",
+    "pages/insertAddress/insertAddress",
+    "pages/comment/comment"
+  ],
+  "permission": {
+    "scope.userLocation": {
+        "desc": "你的位置信息将用于小程序位置接口的"
+    }
+    },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFD600",
+    "navigationBarTitleText": "火箭速送",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#D53C3E",
+    "backgroundColor": "#F9F9F9",
+    "list": [
+      {
+        "pagePath": "pages/market/market",
+        "text": "闪送超市",
+        "iconPath": "image/market2.jpg",
+        "selectedIconPath": "image/market1.jpg"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "image/cart1.jpg",
+        "selectedIconPath": "image/cart2.jpg"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "image/me0.jpg",
+        "selectedIconPath": "image/me1.jpg"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+  
+}

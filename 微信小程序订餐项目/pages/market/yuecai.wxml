@@ -1,0 +1,20 @@
+<scroll-view scroll-y='true' style='width:100%;height:100%;'>
+  <view wx:for="{{menusYueCaiList}}" wx:for-item="yuecai" wx:key="index4">
+    <view wx:if='{{productId_hidden}}'>{{yuecai.productId}}</view>
+    <view class='item'>
+      <view class='icon'>
+        <image src='/image/{{yuecai.productPic}}' style='width:100rpx;height:87rpx;border-radius:100rpx;margin-top:14rpx;'></image>
+      </view>
+      <view class='info'>
+        <view class='name'>{{yuecai.productName}}</view>
+        <view class='priceInfo'>
+          <view class='price'>￥{{yuecai.productPrice}}</view>
+
+          <text class='{{yuecai.isBuy==0?"isbuy":"isbuy2"}}' data-type='2' data-index='{{index}}' data-isbuy='{{yuecai.isBuy}}' bindtap='isbuyTap' >{{yuecai.isBuy == 0?'添加':'取消'}}</text>
+          
+        </view>
+      </view>
+    </view>
+    <view class='hr'></view>
+  </view>
+</scroll-view>

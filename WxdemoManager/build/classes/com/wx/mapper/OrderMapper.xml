@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.wx.mapper.OrderMapper">
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from ex_order where orderState = '已付款'
+	</select>
+	
+	<select id="getOrderList" resultType="order">
+		select * from ex_order where orderState = '已付款' order by createOrderTime desc  limit #{page},#{pageSize}
+	</select>
+	
+	<update id="updateOrderIsAccpet">
+		update ex_order set isAcept = #{isAcpet} where id = #{id}
+	</update>
+	
+	<select id="GetNewPayOrder" resultType="order">
+		select * from temporder
+	</select>
+	
+	<delete id="delTempOrder">
+		delete from tempOrder				<!-- 清空临时订单表 -->
+	</delete>
+	
+	<select id="returnGetOrderDetails" resultType="com.wx.pojo.OrderDetail">
+		select * from ex_order_detail where orderId = #{orderId}
+	</select>
+	
+</mapper>

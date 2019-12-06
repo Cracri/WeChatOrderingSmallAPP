@@ -1,0 +1,24 @@
+<scroll-view scroll-y='true' style='width:100%;height:100%;'>
+  <view scroll-y='true' wx:for="{{menusDessertList}}" wx:for-item="dessert" wx:key="index2" >
+
+    <view wx:if='{{productId_hidden}}'>{{dessert.productId}}</view>
+    <view class='item'>
+      <view class='icon'>
+        <image src='/image/{{dessert.productPic}}' style='width:100rpx;height:87rpx;border-radius:100rpx'></image>
+      </view>
+      <view class='info'>
+        <view class='name'>{{dessert.productName}}
+          <text class='surplus'>({{dessert.surplus}})</text>
+        </view>
+        <view class='priceInfo'>
+          <view class='price' style='width:145px;'>￥{{dessert.productPrice}}</view>
+          <text class='count2' data-index="{{index}}" bindtap='decreaseDessertCount'>-</text>
+          <input disabled='disabled' class='buycount' type='number' value='{{dessert.buyCount}}'></input>
+          <text class='count' bindtap='addDessertCount' data-index="{{index}}">+</text>
+        </view>
+      </view>
+    </view>
+  <view class='hr'></view>
+  </view>
+
+</scroll-view>
